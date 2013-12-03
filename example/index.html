@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Pannable Divs</title>
+      <link rel="stylesheet" href="/css/feathers.css">
+      <link rel="stylesheet" href="/css/example.css">
+  </head>
+  <body>
+    <div class="examples">
+      <h1>Panhandler</h1>
+      <section>
+        <h3>Tile Grid</h3>
+        <div ng-app="pannableExamples">
+          <div ng-controller="Example1">
+            <div class="grid" panhandler content-width="100em">
+              <div class="grid-block" ng-repeat="item in gridItems">
+                <span class="grid-number">{{$index + 1}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="/js/dependencies.js"></script>
+    <script src="/js/angular-panhandler.js"></script>
+    <script src="/examples.js"></script>
+  </body>
+</html>

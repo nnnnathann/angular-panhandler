@@ -1,0 +1,23 @@
+.examples {
+  padding: 2em;
+}
+.grid {
+  border: 8px solid #FFFFa0;
+  width: 512px;
+  height: 512px;
+  overflow: hidden;
+}
+.grid-block {
+  text-align: center;
+  vertical-align: middle;
+  background: #f0f0f0;
+  margin: 1em;
+  font-size: 3em;
+  color: #a0a0a0;
+  line-height: 50px;
+  padding: 1em;
+  float: left;
+}
+.panhandler-wrap {
+  background: #f7f7f7;
+}

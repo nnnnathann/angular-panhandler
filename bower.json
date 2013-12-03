@@ -1,0 +1,26 @@
+{
+  "name": "angular-panhandler",
+  "version": "0.0.1",
+  "authors": [
+    "Nathan Bleigh <nathan.bleigh@gmail.com>"
+  ],
+  "description": "Drag to Pan DOM Element Descendants",
+  "main": ["dist/angular-panhandler.js","dist/angular-panhandler.min.js"],
+  "keywords": [
+    "angular",
+    "pan",
+    "draggable",
+    "drag"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.3"
+  }
+}
