@@ -21,8 +21,12 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>.js'
       },
       example: {
-        src: ['lib/<%= pkg.name %>.js'],
+        src: ['dist/<%= pkg.name %>.js'],
         dest: 'example/js/<%= pkg.name %>.js'
+      },
+      example_min: {
+        src: ['dist/<%= pkg.name %>.min.js'],
+        dest: 'example/js/<%= pkg.name %>.min.js'
       },
       dependencies: {
         src: ['bower_components/angular/angular.js'],
@@ -31,7 +35,8 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        banner: '<%= banner %>'
+        banner: '<%= banner %>',
+        mangle: false
       },
       dist: {
         src: '<%= concat.dist.dest %>',
@@ -48,9 +53,6 @@ module.exports = function(grunt) {
       lib_test: {
         src: ['lib/**/*.js', 'test/**/*.js']
       }
-    },
-    qunit: {
-      files: ['test/**/*.html']
     },
     connect: {
       dev: {
@@ -75,7 +77,7 @@ module.exports = function(grunt) {
       },
       lib_concat: {
         files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'concat']
+        tasks: ['jshint:lib_test', 'concat', 'uglify']
       }
     }
   });
@@ -90,6 +92,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'connect','open','watch']);
-
+  grunt.registerTask('default', ['jshint', 'concat:dist', 'uglify', 'concat', 'connect','open','watch']);
+  grunt.registerTask('build',['jshint','concat','uglify']);
 };

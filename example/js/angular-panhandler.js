@@ -1,9 +1,12 @@
-/*! angular-panhandler - v0.0.1 - 2013-12-03
+/*! angular-panhandler - v0.0.1 - 2013-12-05
+* Copyright (c) 2013 ; Licensed  */
+/*! angular-panhandler - v0.0.1 - 2013-12-05
 * Copyright (c) 2013 ; Licensed  */
 (function(){
   'use strict';
   angular.module('panhandler', [])
-    .directive('panhandler', function ($document) {
+    .directive('panhandler', function PanhandlerFactory($document) {
+      PanhandlerFactory.$inject = ['$document'];
       function Panhandler ($el, attr) {
         this.$el = $el;
         this.contentWidth = attr.contentWidth;

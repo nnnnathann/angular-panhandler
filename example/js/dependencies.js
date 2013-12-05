@@ -1,4 +1,4 @@
-/*! angular-panhandler - v0.0.1 - 2013-12-03
+/*! angular-panhandler - v0.0.1 - 2013-12-05
 * Copyright (c) 2013 ; Licensed  */
 (function(window, document, undefined) {'use strict';
 
