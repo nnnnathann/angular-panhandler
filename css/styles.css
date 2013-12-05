@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Moon Flower";
+  src: url('fonts/268951417-Moon-Flower.eot');
+  src: url('fonts/268951417-Moon-Flower.eot?#iefix') format('embedded-opentype'),
+  url('fonts/268951417-Moon-Flower.svg#Moon Flower') format('svg'),
+  url('fonts/268951417-Moon-Flower.woff') format('woff'),
+  url('fonts/268951417-Moon-Flower.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+html, body {
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  background: #ffffff;
+}
+h1 {
+  font-weight: normal;
+  font-size: 5em;
+  margin: 0;
+}
+small {
+  font-size: 2em;
+}
+.hero {
+  border-bottom: 8px solid #FFFFAA;
+  color: #FFFFAA;
+  font-family: 'Moon Flower', Helvetica, sans-serif;
+  text-align: center;
+  padding: 100px 0;
+  background: #101020 url('../images/starfield.jpg') repeat top left;
+}
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) { 
+  .hero {
+    background-size: 400px 400px;
+    background-image: url('../images/starfield@2x.jpg');
+  }
+}
