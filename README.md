@@ -1,7 +1,9 @@
-Panhandler
+![panhandler](http://nnnnathann.github.io/angular-panhandler/images/brand.jpg)
 ==================
 
-![demo](http://nnnnathann.github.io/angular-panhandler/images/demo.gif)
+<p align="center" style="text-align: center;">
+    <img src="http://nnnnathann.github.io/angular-panhandler/images/demo.gif" alt="Demo"/>
+</p>
 
 Pan Directive for Angular.js - Drag to scroll behavior
 
