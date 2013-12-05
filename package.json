@@ -1,6 +1,6 @@
 {
   "name": "angular-panhandler",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Pan to scroll DOM elements",
   "main": "dist/angular-panhandler.js",
   "scripts": {
