@@ -14,7 +14,9 @@
         <h3>Tile Grid</h3>
         <div ng-app="pannableExamples">
           <div ng-controller="Example1">
-            <div class="grid" panhandler content-width="100em">
+            <input name="preventPan" type="checkbox" ng-model="preventPan" />
+            <label for="preventPan">Prevent Panning</label>
+            <div class="grid" panhandler content-width="100em" prevent-pan="{{preventPan}}">
               <div class="grid-block" ng-repeat="item in gridItems">
                 <span class="grid-number">{{$index + 1}}</span>
               </div>

@@ -1,11 +1,11 @@
-/*! angular-panhandler - v0.0.1 - 2013-12-05
-* Copyright (c) 2013 ; Licensed  */
+/*! angular-panhandler - v1.0.0 - 2014-10-17
+* Copyright (c) 2014 ; Licensed MIT %> */
 (function(){
   'use strict';
   angular.module('panhandler', [])
     .directive('panhandler', function PanhandlerFactory($document) {
       PanhandlerFactory.$inject = ['$document'];
-      function Panhandler ($el, attr) {
+      function Panhandler ($el, attr, $scope) {
         this.$el = $el;
         this.contentWidth = attr.contentWidth;
         this.contentHeight = attr.contentHeight;
@@ -14,19 +14,23 @@
         this.origin = [];
         this.startPos = [];
         this.pos = [0,0];
-        
+
         this.touch = ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch;
         this.has3d = has3d();
+        this.overEvent = 'mouseover';
         this.downEvent = this.touch ? 'touchstart':'mousedown';
         this.upEvent = this.touch ? 'touchend':'mouseup';
         this.moveEvent = this.touch ? 'touchmove':'mousemove';
         this.noTouch = vendorize('user-select', 'none');
-        
+
+        this.$scope = $scope;
+
         this.startBind = angular.bind(this,this.startDrag);
         this.endBind = angular.bind(this,this.endDrag);
         this.updateBind = angular.bind(this,this.updateDrag);
         this.mouseOutBind = angular.bind(this,this.mouseOut);
-        
+        this.mouseOverBind = angular.bind(this,this.mouseOver);
+
         this.init();
       }
       Panhandler.prototype = {
@@ -76,7 +80,13 @@
           this.minX = Math.min(this.viewDimensions[0] - this.contentDimensions[0],0);
           this.minY = Math.min(this.viewDimensions[1] - this.contentDimensions[1],0);
         },
+        isPrevented: function () {
+          return this.$scope.preventPan === true || this.$scope.preventPan === 'true';
+        },
         startDrag: function(e){
+          if (this.isPrevented()) {
+            return false;
+          }
           this.origin = this.positionFromEvent(e);
           this.startPos = [this.pos[0],this.pos[1]];
           this.cacheBounds();
@@ -107,7 +117,13 @@
         },
         makeInteractive: function(){
           this.draggable.on(this.downEvent,this.startBind);
+          if (!this.touch) {
+            this.draggable.on(this.overEvent,this.mouseOverBind);
+          }
           this.$el.on('$destroy',this.destroy);
+        },
+        mouseOver: function (e) {
+          this.grabCursor();
         },
         mouseOut: function(e){
           var el = e.target;
@@ -125,13 +141,15 @@
         grabCursor: function(){
           var isWk = navigator.userAgent.match(/WebKit/);
           var isFF = navigator.userAgent.match(/Gecko/);
-          if(isWk){
-            this.draggable.css('cursor','-webkit-grab');
+          var cursor = 'move';
+          if (this.isPrevented()) {
+            cursor = '';
+          } else if (isWk) {
+            cursor = '-webkit-grab';
           }else if(isFF){
-            this.draggable.css('cursor','-moz-grab');
-          }else{
-            this.draggable.css('cursor','move');
+            cursor = '-moz-grab';
           }
+          this.draggable.css('cursor',cursor);
         },
         grabbingCursor: function(){
           var isWk = navigator.userAgent.match(/WebKit/);
@@ -146,9 +164,12 @@
         }
       };
       return {
+        scope: {
+          preventPan: '@preventPan'
+        },
         link: function link(scope,element,attr){
           setTimeout(function(){
-            new Panhandler(element,attr);
+            new Panhandler(element, attr, scope);
           });
         }
       };

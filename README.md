@@ -11,6 +11,15 @@ Pan Directive for Angular.js - Drag to scroll behavior
 
 Add ```panhandler``` as an attribute to the element on which you would like to enable panning.  Thats it!  If you would like to make sure your inner content fits to a certain size, you can specify a ```content-{width|height}``` attribute.
 
+
+### Advanced Usage
+
+If you need to disable panning (temporarily) for some of the content elements,
+you can set the `preventPan` attribute on the panhandler element to true.
+
+This is useful in the case that you would like to enable drag-n-drop
+for some elements within the pannable area.
+
 ### Example
 
 Javascript
@@ -28,6 +37,22 @@ HTML
 <div ng-app="pannableExamples">
   <div ng-controller="Example1">
     <div panhandler content-width="100em">
+      Stuff to pan around!
+    </div>
+  </div>
+</div>
+```
+
+### Prevent Example
+
+HTML
+
+```html
+<div ng-app="pannableExamples">
+  <div ng-controller="Example1">
+    <input name="preventPan" type="checkbox" ng-model="preventPanCheck" />
+    <label for="preventPan">Prevent Panning</label>
+    <div panhandler content-width="100em" prevent-pan="{{ preventPanCheck }}">
       Stuff to pan around!
     </div>
   </div>
