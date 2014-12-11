@@ -78,3 +78,10 @@ Should get you going!
 ### License
 
 MIT License
+
+
+### Contributors and Acknowledgements
+
+Thanks goes out these contributors and/or users.
+
+@gtczap
