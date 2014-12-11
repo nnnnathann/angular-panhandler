@@ -66,8 +66,9 @@ For development, you will need node.js installed.
 After that, run the following from the repo directory
 
 ```bash
-npm install grunt-cli -g
+npm install grunt-cli bower -g
 npm install
+bower install
 grunt
 ```
 
