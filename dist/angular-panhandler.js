@@ -1,4 +1,4 @@
-/*! angular-panhandler - v1.0.0 - 2014-10-17
+/*! angular-panhandler - v1.0.0 - 2014-12-10
 * Copyright (c) 2014 ; Licensed MIT %> */
 (function(){
   'use strict';
@@ -109,6 +109,7 @@
           this.curr = [];
           this.grabCursor();
           $document.off(this.moveEvent,this.updateBind);
+          $document.off(this.upEvent,this.endBind);
           this.$el.off('mouseout',this.mouseOutBind);
           window.cancelAnimationFrame(this.loop);
         },
