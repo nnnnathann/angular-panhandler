@@ -1,7 +1,7 @@
-/*! angular-panhandler - v1.0.1 - 2014-12-11
-* Copyright (c) 2014 ; Licensed MIT %> */
-/*! angular-panhandler - v1.0.1 - 2014-12-11
-* Copyright (c) 2014 ; Licensed MIT %> */
+/*! angular-panhandler - v1.0.2 - 2015-02-16
+* Copyright (c) 2015 ; Licensed MIT %> */
+/*! angular-panhandler - v1.0.2 - 2015-02-16
+* Copyright (c) 2015 ; Licensed MIT %> */
 (function(){
   'use strict';
   angular.module('panhandler', [])
@@ -89,6 +89,9 @@
           if (this.isPrevented()) {
             return false;
           }
+          if ( this.findParentNoScroll(e.target, 'iCannotScroll') ) {
+            return false;
+          }
           this.origin = this.positionFromEvent(e);
           this.startPos = [this.pos[0],this.pos[1]];
           this.cacheBounds();
@@ -98,6 +101,10 @@
           this.$el.on('mouseout',this.mouseOutBind);
           this.updateDrag(e);
           this.tick();
+        },
+        findParentNoScroll: function(el, cls){
+          while ( !el.classList.contains(cls) && (el = el.parentElement) && !el.classList.contains(cls));
+          return el;
         },
         updateDrag: function(e){
           var curr = this.positionFromEvent(e);

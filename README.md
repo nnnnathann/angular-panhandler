@@ -59,6 +59,22 @@ HTML
 </div>
 ```
 
+### Prevent Pan on item
+
+HTML
+
+```html
+<div ng-app="pannableExamples">
+  <div ng-controller="Example1">
+    <input name="preventPan" type="checkbox" />
+    <label for="preventPan">Prevent Panning</label>
+    <div panhandler content-width="100em">
+      <div class="iDoNotWantToScroll" icannotScroll></div>
+    </div>
+  </div>
+</div>
+```
+
 ### Development
 
 For development, you will need node.js installed.
