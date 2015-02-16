@@ -1,6 +1,6 @@
-/*! angular-panhandler - v1.0.2 - 2015-02-16
+/*! angular-panhandler - v1.0.2 - 2015-02-15
 * Copyright (c) 2015 ; Licensed MIT %> */
-/*! angular-panhandler - v1.0.2 - 2015-02-16
+/*! angular-panhandler - v1.0.2 - 2015-02-15
 * Copyright (c) 2015 ; Licensed MIT %> */
 (function(){
   'use strict';
