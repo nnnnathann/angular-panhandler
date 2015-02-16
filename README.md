@@ -69,7 +69,7 @@ HTML
     <input name="preventPan" type="checkbox" />
     <label for="preventPan">Prevent Panning</label>
     <div panhandler content-width="100em">
-      <div class="iDoNotWantToScroll" icannotScroll></div>
+      <div class="iDoNotWantToScroll iCannotScroll"></div>
     </div>
   </div>
 </div>
