@@ -44,6 +44,9 @@
           if(this.contentHeight){
             this.draggable.css('height', this.contentHeight);
           }
+		  if(this.contentHeight){
+            this.draggable.css('height',this.contentHeight);
+          }
           this.grabCursor();
           angular.forEach(this.$el.contents(),angular.bind(this,function(c){
             this.draggable.append(c);
