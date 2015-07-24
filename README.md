@@ -102,3 +102,4 @@ Thanks goes out these contributors and/or users.
 
 @gtczap
 @ggggino
+@Konkko
