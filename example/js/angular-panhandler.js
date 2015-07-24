@@ -1,6 +1,6 @@
-/*! angular-panhandler - v1.0.2 - 2015-02-15
+/*! angular-panhandler - v1.0.3 - 2015-07-24
 * Copyright (c) 2015 ; Licensed MIT %> */
-/*! angular-panhandler - v1.0.2 - 2015-02-15
+/*! angular-panhandler - v1.0.3 - 2015-07-24
 * Copyright (c) 2015 ; Licensed MIT %> */
 (function(){
   'use strict';
@@ -41,7 +41,10 @@
           this.draggable = angular.element('<div class="panhandler-wrap"></div>');
           this.draggable.css(this.noTouch);
           if(this.contentWidth){
-            this.draggable.css('width',this.contentWidth);
+            this.draggable.css('width', this.contentWidth);
+          }
+          if(this.contentHeight){
+            this.draggable.css('height', this.contentHeight);
           }
           this.grabCursor();
           angular.forEach(this.$el.contents(),angular.bind(this,function(c){
