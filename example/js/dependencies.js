@@ -1,4 +1,4 @@
-/*! angular-panhandler - v1.1.0 - 2015-08-07
+/*! angular-panhandler - v1.1.1 - 2015-08-07
 * Copyright (c) 2015 ; Licensed MIT %> */
 (function(window, document, undefined) {'use strict';
 

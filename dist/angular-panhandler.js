@@ -1,10 +1,9 @@
-/*! angular-panhandler - v1.1.0 - 2015-08-07
+/*! angular-panhandler - v1.1.1 - 2015-08-07
 * Copyright (c) 2015 ; Licensed MIT %> */
 (function(){
   'use strict';
   angular.module('panhandler', [])
-    .directive('panhandler', function PanhandlerFactory($document) {
-      PanhandlerFactory.$inject = ['$document'];
+    .directive('panhandler', ['$document', function PanhandlerFactory($document) {
       function Panhandler ($el, attr, $scope) {
         this.$el = $el;
         this.contentWidth = attr.contentWidth;
@@ -188,7 +187,7 @@
           });
         }
       };
-    });
+    }]);
 
     // Util
     function getWidth($el){
