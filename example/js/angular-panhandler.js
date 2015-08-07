@@ -1,6 +1,6 @@
-/*! angular-panhandler - v1.0.3 - 2015-07-24
+/*! angular-panhandler - v1.1.0 - 2015-08-07
 * Copyright (c) 2015 ; Licensed MIT %> */
-/*! angular-panhandler - v1.0.3 - 2015-07-24
+/*! angular-panhandler - v1.1.0 - 2015-08-07
 * Copyright (c) 2015 ; Licensed MIT %> */
 (function(){
   'use strict';
@@ -180,6 +180,7 @@
         }
       };
       return {
+        restrict: 'AC',
         scope: {
           preventPan: '@preventPan'
         },
