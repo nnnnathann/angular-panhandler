@@ -1,7 +1,7 @@
-/*! angular-panhandler - v1.1.1 - 2015-08-07
-* Copyright (c) 2015 ; Licensed MIT %> */
-/*! angular-panhandler - v1.1.1 - 2015-08-07
-* Copyright (c) 2015 ; Licensed MIT %> */
+/*! angular-panhandler - v1.1.2 - 2016-12-21
+* Copyright (c) 2016 ; Licensed MIT %> */
+/*! angular-panhandler - v1.1.2 - 2016-12-21
+* Copyright (c) 2016 ; Licensed MIT %> */
 (function(){
   'use strict';
   angular.module('panhandler', [])
@@ -14,7 +14,12 @@
         this.curr = [];
         this.origin = [];
         this.startPos = [];
-        this.pos = [0,0];
+
+        var xOffset = attr.panhandlerOffsetX ? convertToPixel(attr.panhandlerOffsetX) : 0;
+        var yOffset = attr.panhandlerOffsetY ? convertToPixel(attr.panhandlerOffsetY) : 0;
+        
+        this.pos = [xOffset, yOffset];
+
 
         this.touch = ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch;
         this.has3d = has3d();
@@ -52,6 +57,7 @@
           this.draggable.append('<div style="clear:both;"></div>');
           this.$el.append(this.draggable);
           this.makeInteractive();
+          this.setPosition(this.pos[0], this.pos[1]);
         },
         tick: function(){
           if(this.origin.length && this.dirty){
@@ -64,6 +70,9 @@
           var x = this.clampX(this.startPos[0] + (this.curr[0] - this.origin[0]));
           var y = this.clampY(this.startPos[1] + (this.curr[1] - this.origin[1]));
           this.pos = [x,y];
+          this.setPosition(x,y);
+        },
+        setPosition: function(x,y) {
           if(this.has3d){
             var trans = vendorize('transform','translate3d(' + x + 'px,' + y + 'px, 0)');
             this.draggable.css(trans);
@@ -221,6 +230,19 @@
         hash |= 0; // Convert to 32bit integer
       }
       return hash;
+    }
+    function convertToPixel(size){
+      var retVal = null;
+      if(/^[+-]?\d*$/.test(size) || /^[+-]?\d*px$/.test(size)) {
+        retVal = parseInt(size);
+      }
+      else if (/^[+-]?\d*em$/.test(size)) {
+        var body = angular.element(document).find('body')[0];
+        var pixelSize = parseInt(window.getComputedStyle(body).fontSize);
+        var emSize = parseInt(size);
+        retVal = pixelSize * emSize;
+      }
+      return retVal;
     }
 
     // Prefix CSS
