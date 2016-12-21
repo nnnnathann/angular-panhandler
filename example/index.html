@@ -20,7 +20,7 @@
             <label for="preventPanItem">Prevent Panning on items</label>
             <div class="grid" panhandler content-width="100em" prevent-pan="{{preventPan}}" panhandler-offset-x="-20em" panhandler-offset-y="-10em">
               <div class="grid-block" ng-class="{iCannotScroll: preventPanItem==true}" ng-repeat="item in gridItems">
-                <span class="grid-number" ng-cloak>{{$index + 1}}</span>
+                <span class="grid-number" ng-cloak panhandler>{{$index + 1}}</span>
               </div>
             </div>
           </div>
