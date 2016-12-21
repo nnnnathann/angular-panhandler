@@ -75,6 +75,22 @@ HTML
 </div>
 ```
 
+### Add an Initial Pan for X and Y Axes
+
+HTML
+
+```html
+<div ng-app="pannableExamples">
+  <div ng-controller="Example1">
+    <input name="preventPan" type="checkbox" />
+    <label for="preventPan">Prevent Panning</label>
+    <div panhandler content-width="100em" panhandler-offset-x="-20em" panhandler-offset-y="-10em">
+      <div class="iDoNotWantToScroll iCannotScroll"></div>
+    </div>
+  </div>
+</div>
+```
+
 ### Development
 
 For development, you will need node.js installed.
